@@ -2,7 +2,7 @@
 
 ## 架構圖
 
-![Alt text](https://github.com/yotzom/Document/blob/master/ELKonCloud_img/%E6%9E%B6%E6%A7%8B.png "ELK架構圖")
+![ELK架構圖](https://github.com/yotzom/Document/blob/master/ELKonCloud_img/ELKstucture.png "ELK架構圖")
 ## 軟體版本
 
 + Elastixsearch : 7.7.0
