@@ -3,8 +3,8 @@
 ### 1. 架構圖
 ### 2. Elasticsearch 7.7.0 安裝
 ### 3. Kibana 7.7.0 安裝
-### 4. Logstash
-### 5. Filebeat
+### 4. Logstash 7.7.0 安裝
+### 5. Filebeat 7.7.0 安裝
 ### 6. Troubleshooting
 --- 
 ## 1. 架構圖
@@ -31,7 +31,8 @@
 > + RAM : 1 G
 > + Disk : 30 G
 
-這裡選擇的VM幾乎都是倒數第一或第二的規格，其實這樣的規格在加上SWAP就可以穩定同時Run 2~3個程式了，<BR>
+這裡選擇的VM幾乎都是倒數第一或第二的規格， <BR>
+其實這樣的規格在加上SWAP就可以穩定同時Run 2~3個程式了，<BR>
 再上去就會有多餘的性能浪費了 (其實是維護費用變高會付不起T_T <BR>
 3個平台相比起來GCP大方地給了別的平台兩倍的RAM，RAM大小在VM終至關重要啊!!!
   
@@ -47,3 +48,8 @@
 + FileBeat : 7.7.0 <BR>
   
 **注意:以上4個軟體版本最好保持同一版本，最多只能小版本號不一樣(Ex. 7.7.0 7.7.1)，不然極有可能導致一堆不可預期的Bug，此為官方特別提醒的!**
+[官網參考連結](https://www.elastic.co/guide/en/elastic-stack/current/installing-elastic-stack.html "https://www.elastic.co/guide/en/elastic-stack/current/installing-elastic-stack.html")
+
+## 2. Elasticsearch 7.7.0 安裝
+### 1.1 安裝
+### 1.2 設定
