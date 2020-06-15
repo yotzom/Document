@@ -1,22 +1,25 @@
 # Elasticsearch、Logstash及Kibana雲端架設安裝流程
 
-### 1. [架構圖](https://github.com/yotzom/Document/blob/master/ELKonCloud.md#1-%E6%9E%B6%E6%A7%8B%E5%9C%96-1)
-### 2. [虛擬機&軟體版本](https://github.com/yotzom/Document/blob/master/ELKonCloud.md#2-%E8%99%9B%E6%93%AC%E6%A9%9F%E8%BB%9F%E9%AB%94%E7%89%88%E6%9C%AC-1)
-### 3. [ELK stack 安裝](https://github.com/yotzom/Document/blob/master/ELKonCloud.md#3-elk-stack-%E5%AE%89%E8%A3%9D-1)
-### 4. [Troubleshooting]()
+### 1. [ELK stack介紹]()
+### 2. [架構圖](https://github.com/yotzom/Document/blob/master/ELKonCloud.md#2-%E6%9E%B6%E6%A7%8B%E5%9C%96-1)
+### 3. [虛擬機&軟體版本](https://github.com/yotzom/Document/blob/master/ELKonCloud.md#3-%E8%99%9B%E6%93%AC%E6%A9%9F%E8%BB%9F%E9%AB%94%E7%89%88%E6%9C%AC-1)
+### 4. [ELK stack 安裝](https://github.com/yotzom/Document/blob/master/ELKonCloud.md#4-elk-stack-%E5%AE%89%E8%A3%9D-1)
+### 5. [Troubleshooting]()
 --- 
-## 1. 架構圖
+## 1. ELK stack介紹
+
+## 2. 架構圖
 
 ![ELK架構圖](https://github.com/yotzom/Document/blob/master/ELKonCloud_img/ELKstucture.png "ELK架構圖")
 
-### 1.1 在這裡簡單介紹下整個架構的連接架構:
+### 2.1 在這裡簡單介紹下整個架構的連接架構:
 > Elasticsearch作為整個架構中的資料庫，所以只要掛掉或連線不通Kibana就會跟著掛掉!<BR>
 > Kibana為架構中的唯一網頁介面，在裡面可以視覺化Elasticsearch中的資料。<BR>
 > Logstash可以直接當資料的收集器或者也可以當filebeat的中繼器。<BR>
 > Filebeat做為輕量化的收集器可取代在每台客機上安裝Logstash，可以讓客機的額外負載降到最低(安裝包大小約10M)。<BR>
   
-## 2. 虛擬機&軟體版本
-### 2.1 雲端服務虛擬機
+## 3. 虛擬機&軟體版本
+### 3.1 雲端服務虛擬機
 + Google Cloud Platform - g1-small
 > + CPU : 1 core
 > + RAM : 1.7 G
@@ -35,12 +38,12 @@
 再上去就會有多餘的性能浪費了 (其實是維護費用變高會付不起T_T <BR>
 3個平台相比起來GCP大方地給了別的平台兩倍的RAM，RAM大小在VM終至關重要啊!!!
   
-### 2.2 作業系統版本
+### 3.2 作業系統版本
 + GCP : Ubuntu 20.04 LTS
 + AWS : Ubuntu 20.04 LTS
 + AZURE : Ubuntu 18.04.4 LTS
 
-### 2.3 軟體版本
+### 3.3 軟體版本
 + Elastixsearch : 7.7.0
 + Kibana : 7.7.0
 + Logstash : 7.7.0
@@ -49,23 +52,23 @@
 **注意:以上4個軟體版本最好保持同一版本，最多只能小版本號不一樣(Ex. 7.7.0 7.7.1)，不然極有可能導致一堆不可預期的Bug，此為官方特別提醒的!**
 [官網參考連結](https://www.elastic.co/guide/en/elastic-stack/current/installing-elastic-stack.html "https://www.elastic.co/guide/en/elastic-stack/current/installing-elastic-stack.html")
 
-## 3. ELK stack 安裝
-### 3.1 Elasticsearch 7.7.0 安裝
-- #### 3.1.1 安裝
-- #### 3.1.2 設定
-- #### 3.1.3 測試
+## 4. ELK stack 安裝
+### 4.1 Elasticsearch 7.7.0 安裝
+- #### 4.1.1 安裝
+- #### 4.1.2 設定
+- #### 4.1.3 測試
 
-### 3.2 Kibana 7.7.0 安裝
-- #### 3.2.1 安裝
-- #### 3.2.2 設定
-- #### 3.1.3 測試
+### 4.2 Kibana 7.7.0 安裝
+- #### 4.2.1 安裝
+- #### 4.2.2 設定
+- #### 4.1.3 測試
 
-### 3.3 Logstash 7.7.0 安裝
-- #### 3.3.1 安裝
-- #### 3.3.2 設定
-- #### 3.1.3 測試
+### 4.3 Logstash 7.7.0 安裝
+- #### 4.3.1 安裝
+- #### 4.3.2 設定
+- #### 4.1.3 測試
 
-### 3.4 Filebeat 7.7.0 安裝
-- #### 3.4.1 安裝
-- #### 3.4.2 設定
-- #### 3.1.3 測試
+### 4.4 Filebeat 7.7.0 安裝
+- #### 4.4.1 安裝
+- #### 4.4.2 設定
+- #### 4.1.3 測試
