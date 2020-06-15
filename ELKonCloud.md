@@ -100,14 +100,29 @@ Logstash需要JAVA
 `wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -`<BR><BR>
 3. 新增repository<BR><BR>
 `echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list`<BR><BR>
-4. 更新套件料表並安裝kibana<BR><BR>
+4. 更新套件列表並安裝kibana<BR><BR>
 `sudo apt-get update && sudo apt-get install kibana`<BR><BR>
 5. 設定開機自啟動<BR><BR>
 `sudo systemctl enable kibana`<BR>
 
 - #### 4.3.2 設定
+1. 修改kibana設定檔<BR><BR>
+`sudo vi /etc/kibana/kibana.yml`<BR><BR>
+2. 在kibana.yml中找到找到以下三個設定值並修改如下:<BR><BR>
++ 監聽的PORT<BR><BR>
+`server.port:5601`<BR><BR>
++ 監聽的IP<BR><BR>
+`server.host: 內部IP`<BR><BR>
++ elasticsearch的host和port<BR><BR>
+`elasticsearch.hosts: ["http://'elasticsearch ip:elasticsearch port'"]`
+  
 - #### 4.3.3 測試
-
+在瀏覽器輸入Kibana伺服器的外部IP或者Hostname連線
+<p align="center">
+  <img width="70%" height="70%" src="https://github.com/yotzom/Document/blob/master/ELKonCloud_img/Kibana_test.png">
+  <BR>測試成功畫面
+</p>
+  
 ### 4.4 Logstash 安裝
 - #### 4.4.1 安裝
 1. 允許套件管理器可以下載https來源的套件 (如有安裝過就不用再重複安裝)<BR><BR>
@@ -116,7 +131,7 @@ Logstash需要JAVA
 `wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -`<BR><BR>
 3. 新增repository<BR><BR>
 `echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list`<BR><BR>
-4. 更新套件料表並安裝logstash<BR><BR>
+4. 更新套件列表並安裝logstash<BR><BR>
 `sudo apt-get update && sudo apt-get install logstash`<BR><BR>
 5. 設定開機自啟動<BR><BR>
 `sudo systemctl enable logstash`<BR>
