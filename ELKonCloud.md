@@ -1,8 +1,8 @@
 # Elasticsearch、Logstash及Kibana雲端架設安裝流程
 
 ### 1. [架構圖](https://github.com/yotzom/Document/blob/master/ELKonCloud.md#1-%E6%9E%B6%E6%A7%8B%E5%9C%96-1)
-### 2. [虛擬機&軟體版本](https://github.com/yotzom/Document/blob/master/ELKonCloud.md#2-elasticsearch-770-%E5%AE%89%E8%A3%9D-1)
-### 3. [ELK stack 安裝]()
+### 2. [虛擬機&軟體版本](https://github.com/yotzom/Document/blob/master/ELKonCloud.md#2-%E8%99%9B%E6%93%AC%E6%A9%9F%E8%BB%9F%E9%AB%94%E7%89%88%E6%9C%AC-1)
+### 3. [ELK stack 安裝](https://github.com/yotzom/Document/blob/master/ELKonCloud.md#3-elk-stack-%E5%AE%89%E8%A3%9D-1)
 ### 4. [Troubleshooting]()
 --- 
 ## 1. 架構圖
