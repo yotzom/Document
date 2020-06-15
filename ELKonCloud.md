@@ -53,22 +53,22 @@
 [官網參考連結](https://www.elastic.co/guide/en/elastic-stack/current/installing-elastic-stack.html "https://www.elastic.co/guide/en/elastic-stack/current/installing-elastic-stack.html")
 
 ## 4. ELK stack 安裝
-### 4.1 Elasticsearch 7.7.0 安裝
+### 4.1 Elasticsearch 安裝
 - #### 4.1.1 安裝
 - #### 4.1.2 設定
 - #### 4.1.3 測試
 
-### 4.2 Kibana 7.7.0 安裝
+### 4.2 Kibana 安裝
 - #### 4.2.1 安裝
 - #### 4.2.2 設定
 - #### 4.1.3 測試
 
-### 4.3 Logstash 7.7.0 安裝
+### 4.3 Logstash 安裝
 - #### 4.3.1 安裝
 - #### 4.3.2 設定
 - #### 4.1.3 測試
 
-### 4.4 Filebeat 7.7.0 安裝
+### 4.4 Filebeat 安裝
 - #### 4.4.1 安裝
 - #### 4.4.2 設定
 - #### 4.1.3 測試
