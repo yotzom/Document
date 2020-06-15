@@ -52,10 +52,13 @@
 **注意:以上4個軟體版本最好保持同一版本，最多只能小版本號不一樣(Ex. 7.7.0 7.7.1)，不然極有可能導致一堆不可預期的Bug，此為官方特別提醒的!**
 [官網參考連結](https://www.elastic.co/guide/en/elastic-stack/current/installing-elastic-stack.html "https://www.elastic.co/guide/en/elastic-stack/current/installing-elastic-stack.html")
 
-## 4. E=Filebeat和Logstash可以擇一使用，或者更進階的選用其他的log收集器也是OK的，可以將Filebeat理解成輕量化的logstash(Logstash:159M,Filebeat:25M)
+## 4. ELK Stack 安裝
+Filebeat和Logstash可以擇一使用，或者更進階的選用其他的log收集器也是OK的，可以將Filebeat理解成輕量化的logstash(Logstash:159M,Filebeat:25M)
 
 Logstash需要JAVA
-### 4.1 Elasticsearch 安裝
+### 4.1 建立Swap
+
+### 4.2 Elasticsearch 安裝
 - #### 4.1.1 安裝
 1. 允許套件管理器可以下載https來源的套件 (如有安裝過就不用再重複安裝)<BR><BR>
 `sudo apt-get install apt-transport-https`<BR><BR>
@@ -68,7 +71,7 @@ Logstash需要JAVA
 5. 設定開機自啟動<BR><BR>
 `sudo systemctl enable elasticsearch`<BR>
 
-- #### 4.1.2 設定
+- #### 4.2.2 設定
 1. 修改elasticsearch設定檔<BR><BR>
 `sudo vi /etc/elasticsearch/elasticsearch.yml`<BR><BR>
 2. 在elasticsearch.yml中找到找到以下兩個設定值並修改如下:<BR>
@@ -81,7 +84,7 @@ Logstash需要JAVA
 預設監聽的PORT
 `http.port:9200`<BR><BR>
   
-- #### 4.1.3 測試
+- #### 4.2.3 測試
 
 <p align="center">
   <img width="70%" height="70%" src="https://github.com/yotzom/Document/blob/master/ELKonCloud_img/elasticsearch_test.png">
@@ -89,17 +92,50 @@ Logstash需要JAVA
 </p>
 
 
-### 4.2 Kibana 安裝
-- #### 4.2.1 安裝
-- #### 4.2.2 設定
-- #### 4.2.3 測試
-
-### 4.3 Logstash 安裝
+### 4.3 Kibana 安裝
 - #### 4.3.1 安裝
+1. 允許套件管理器可以下載https來源的套件 (如有安裝過就不用再重複安裝)<BR><BR>
+`sudo apt-get install apt-transport-https`<BR><BR>
+2. 下載並安裝elastic的公鑰<BR><BR>
+`wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -`<BR><BR>
+3. 新增repository<BR><BR>
+`echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list`<BR><BR>
+4. 更新套件料表並安裝kibana<BR><BR>
+`sudo apt-get update && sudo apt-get install kibana`<BR><BR>
+5. 設定開機自啟動<BR><BR>
+`sudo systemctl enable kibana`<BR>
+
 - #### 4.3.2 設定
 - #### 4.3.3 測試
 
-### 4.4 Filebeat 安裝
+### 4.4 Logstash 安裝
 - #### 4.4.1 安裝
+1. 允許套件管理器可以下載https來源的套件 (如有安裝過就不用再重複安裝)<BR><BR>
+`sudo apt-get install apt-transport-https`<BR><BR>
+2. 下載並安裝elastic的公鑰<BR><BR>
+`wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -`<BR><BR>
+3. 新增repository<BR><BR>
+`echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list`<BR><BR>
+4. 更新套件料表並安裝logstash<BR><BR>
+`sudo apt-get update && sudo apt-get install logstash`<BR><BR>
+5. 設定開機自啟動<BR><BR>
+`sudo systemctl enable logstash`<BR>
+
 - #### 4.4.2 設定
 - #### 4.4.3 測試
+
+### 4.5 Filebeat 安裝
+解釋下為甚麼這裡不選擇用跟前幾個相同的安裝方式，
+考慮到使用的情境會是在既有的AP server中使用，
+在不破壞原有的架構上增加一個輕量化的程式來達成收集log的目的，
+以壓縮檔的方式使用filebeat更符合這程式的本意，
+在之後需要大型自動化時也可以更方便的部署。
+
+- #### 4.5.1 安裝
+1. 下載filebeat壓縮檔<BR><BR>
+`curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.7.0-linux-x86_64.tar.gz`<BR><BR>
+2. 解壓縮filebeat壓縮檔<BR><BR>
+`tar xzvf filebeat-7.7.0-linux-x86_64.tar.gz`<BR><BR>
+
+- #### 4.5.2 設定
+- #### 4.5.3 測試
