@@ -69,6 +69,18 @@ Logstash需要JAVA
 `sudo systemctl enable elasticsearch`<BR>
 
 - #### 4.1.2 設定
+1. 修改elasticsearch設定檔<BR><BR>
+`sudo vi /etc/elasticsearch/elasticsearch.yml`<BR><BR>
+2. 在elasticsearch.yml中找到找到以下兩個設定值並修改如下:<BR>
++ 監聽的IP (不修改的話僅能允許localhost訪問)<BR>
+`network.host: 0.0.0.0`<BR>
++ cluster IP or Hostname (沒有設定cluster的話，必須拿掉註解且[]中保持空白)<BR>
+`discovery.seed_hosts:[]`<BR><BR>
+  
+以下可選擇是否要改:
+預設監聽的PORT
+`http.port:9200`<BR><BR>
+  
 - #### 4.1.3 測試
 
 <p align="center">
