@@ -1,11 +1,9 @@
 # Elasticsearch、Logstash及Kibana雲端架設安裝流程
 
-### 1. 架構圖
-### 2. Elasticsearch 7.7.0 安裝
-### 3. Kibana 7.7.0 安裝
-### 4. Logstash 7.7.0 安裝
-### 5. Filebeat 7.7.0 安裝
-### 6. Troubleshooting
+### 1. [架構圖](https://github.com/yotzom/Document/blob/master/ELKonCloud.md#1-%E6%9E%B6%E6%A7%8B%E5%9C%96-1)
+### 2. [虛擬機&軟體版本](https://github.com/yotzom/Document/blob/master/ELKonCloud.md#2-elasticsearch-770-%E5%AE%89%E8%A3%9D-1)
+### 3. [ELK stack 安裝]()
+### 4. [Troubleshooting]()
 --- 
 ## 1. 架構圖
 
@@ -17,7 +15,8 @@
 > Logstash可以直接當資料的收集器或者也可以當filebeat的中繼器。<BR>
 > Filebeat做為輕量化的收集器可取代在每台客機上安裝Logstash，可以讓客機的額外負載降到最低(安裝包大小約10M)。<BR>
   
-### 1.2 雲端服務虛擬機
+## 2. 虛擬機&軟體版本
+### 2.1 雲端服務虛擬機
 + Google Cloud Platform - g1-small
 > + CPU : 1 core
 > + RAM : 1.7 G
@@ -36,12 +35,12 @@
 再上去就會有多餘的性能浪費了 (其實是維護費用變高會付不起T_T <BR>
 3個平台相比起來GCP大方地給了別的平台兩倍的RAM，RAM大小在VM終至關重要啊!!!
   
-### 1.3 作業系統版本
+### 2.2 作業系統版本
 + GCP : Ubuntu 20.04 LTS
 + AWS : Ubuntu 20.04 LTS
 + AZURE : Ubuntu 18.04.4 LTS
 
-### 1.4 軟體版本
+### 2.3 軟體版本
 + Elastixsearch : 7.7.0
 + Kibana : 7.7.0
 + Logstash : 7.7.0
@@ -50,6 +49,7 @@
 **注意:以上4個軟體版本最好保持同一版本，最多只能小版本號不一樣(Ex. 7.7.0 7.7.1)，不然極有可能導致一堆不可預期的Bug，此為官方特別提醒的!**
 [官網參考連結](https://www.elastic.co/guide/en/elastic-stack/current/installing-elastic-stack.html "https://www.elastic.co/guide/en/elastic-stack/current/installing-elastic-stack.html")
 
-## 2. Elasticsearch 7.7.0 安裝
-### 1.1 安裝
-### 1.2 設定
+## 3. ELK stack 安裝
+### 3.1 Elasticsearch 7.7.0 安裝
+#### 3.1.1 安裝
+#### 3.1.2 設定
