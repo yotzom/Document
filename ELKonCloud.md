@@ -52,23 +52,42 @@
 **注意:以上4個軟體版本最好保持同一版本，最多只能小版本號不一樣(Ex. 7.7.0 7.7.1)，不然極有可能導致一堆不可預期的Bug，此為官方特別提醒的!**
 [官網參考連結](https://www.elastic.co/guide/en/elastic-stack/current/installing-elastic-stack.html "https://www.elastic.co/guide/en/elastic-stack/current/installing-elastic-stack.html")
 
-## 4. ELK stack 安裝
+## 4. E=Filebeat和Logstash可以擇一使用，或者更進階的選用其他的log收集器也是OK的，可以將Filebeat理解成輕量化的logstash(Logstash:159M,Filebeat:25M)
+
+Logstash需要JAVA
 ### 4.1 Elasticsearch 安裝
 - #### 4.1.1 安裝
+1. 允許套件管理器可以下載https來源的套件 (如有安裝過就不用再重複安裝)<BR><BR>
+`sudo apt-get install apt-transport-https`<BR><BR>
+2. 下載並安裝elastic的公鑰<BR><BR>
+`wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -`<BR><BR>
+3. 新增repository<BR><BR>
+`echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list`<BR><BR>
+4. 更新套件料表並安裝elasticsearch<BR><BR>
+`sudo apt-get update && sudo apt-get install elasticsearch`<BR><BR>
+5. 設定開機自啟動<BR><BR>
+`sudo systemctl enable elasticsearch`<BR>
+
 - #### 4.1.2 設定
 - #### 4.1.3 測試
+
+<p align="center">
+  <img width="70%" height="70%" src="https://github.com/yotzom/Document/blob/master/ELKonCloud_img/elasticsearch_test.png">
+  <BR>測試成功畫面
+</p>
+
 
 ### 4.2 Kibana 安裝
 - #### 4.2.1 安裝
 - #### 4.2.2 設定
-- #### 4.1.3 測試
+- #### 4.2.3 測試
 
 ### 4.3 Logstash 安裝
 - #### 4.3.1 安裝
 - #### 4.3.2 設定
-- #### 4.1.3 測試
+- #### 4.3.3 測試
 
 ### 4.4 Filebeat 安裝
 - #### 4.4.1 安裝
 - #### 4.4.2 設定
-- #### 4.1.3 測試
+- #### 4.4.3 測試
