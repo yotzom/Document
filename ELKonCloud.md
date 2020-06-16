@@ -16,7 +16,7 @@
 > Elasticsearch作為整個架構中的資料庫，所以只要掛掉或連線不通Kibana就會跟著掛掉!<BR>
 > Kibana為架構中的唯一網頁介面，在裡面可以視覺化Elasticsearch中的資料。<BR>
 > Logstash可以直接當資料的收集器或者也可以當filebeat的中繼器。<BR>
-> Filebeat做為輕量化的收集器可取代在每台客機上安裝Logstash，可以讓客機的額外負載降到最低(安裝包大小約10M)。<BR>
+> Filebeat做為輕量化的收集器可取代在每台客機上安裝Logstash，可以讓客機的額外負載降到最低(安裝包大小約25M)。<BR>
   
 ## 3. 虛擬機&軟體版本
 ### 3.1 雲端服務虛擬機
