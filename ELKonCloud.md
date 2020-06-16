@@ -16,7 +16,7 @@
 > Elasticsearch作為整個架構中的資料庫，所以只要掛掉或連線不通Kibana就會跟著掛掉!<BR>
 > Kibana為架構中的唯一網頁介面，在裡面可以視覺化Elasticsearch中的資料。<BR>
 > Logstash可以直接當資料的收集器或者也可以當filebeat的中繼器。<BR>
-> Filebeat做為輕量化的收集器可取代在每台客機上安裝Logstash，可以讓客機的額外負載降到最低(安裝包大小約25M)。<BR>
+> Filebeat做為輕量化的收集器可取代在每台客機上安裝Logstash，可以讓客機的額外負載降到最低(安裝包大小約25M，Logstash:159M)。<BR>
   
 ## 3. 虛擬機&軟體版本
 ### 3.1 雲端服務虛擬機
@@ -53,9 +53,7 @@
 [官網參考連結](https://www.elastic.co/guide/en/elastic-stack/current/installing-elastic-stack.html "https://www.elastic.co/guide/en/elastic-stack/current/installing-elastic-stack.html")
 
 ## 4. ELK Stack 安裝
-Filebeat和Logstash可以擇一使用，或者更進階的選用其他的log收集器也是OK的，可以將Filebeat理解成輕量化的logstash(Logstash:159M,Filebeat:25M)
-
-Logstash需要JAVA
+*Logstash需要依賴JDK，安裝logstash之前記得先安裝java環境。*
 ### 4.1 建立Swap
 
 ### 4.2 Elasticsearch 安裝
