@@ -6,9 +6,11 @@
 ### 4. [ELK stack 安裝](https://github.com/yotzom/Document/blob/master/ELKonCloud.md#4-elk-stack-%E5%AE%89%E8%A3%9D-1)
 ### 5. [ELK stack 使用情境範例](https://github.com/yotzom/Document/blob/master/ELKonCloud.md#5-elk-stack-%E4%BD%BF%E7%94%A8%E6%83%85%E5%A2%83%E7%AF%84%E4%BE%8B-1)
 ### 6. [Troubleshooting]()
+### 7. [Future]()
 --- 
 ## 1. ELK stack介紹
 
+--- 
 ## 2. 架構圖
 
 ![ELK架構圖](https://github.com/yotzom/Document/blob/master/ELKonCloud_img/ELKstucture.png "ELK架構圖")
@@ -19,6 +21,7 @@
 > Logstash可以直接當資料的收集器或者也可以當filebeat的中繼器。<BR>
 > Filebeat做為輕量化的收集器可取代在每台客機上安裝Logstash，可以讓客機的額外負載降到最低(安裝包大小約25M，Logstash:159M)。<BR>
   
+--- 
 ## 3. 虛擬機&軟體版本
 ### 3.1 雲端服務虛擬機
 + Google Cloud Platform - g1-small
@@ -53,6 +56,7 @@
 **注意:以上4個軟體版本最好保持同一版本，最多只能小版本號不一樣(Ex. 7.7.0 7.7.1)，不然極有可能導致一堆不可預期的Bug，此為官方特別提醒的!**
 [官網參考連結](https://www.elastic.co/guide/en/elastic-stack/current/installing-elastic-stack.html "https://www.elastic.co/guide/en/elastic-stack/current/installing-elastic-stack.html")
 
+--- 
 ## 4. ELK Stack 安裝
 *Logstash需要依賴JDK，安裝logstash之前記得先安裝java環境。*
 ### 4.1 建立Swap
@@ -197,9 +201,12 @@ $ sudo systemctl enable logstash
 
 - #### 4.4.2 設定
 1. 修改Logstash設定檔<BR><BR>
-`sudo vi /etc/logstash/conf.d/logstash.yml
+```
+$ sudo vi /etc/logstash/conf.d/logstash.yml
+```
 > (如果con.d底下沒有logstash.yml就新增一個)
 2. 在kibana.yml裡面新增以下內容:<BR>
+  
 ```
 input {
   beats {
@@ -233,16 +240,20 @@ output {
 $ curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.7.0-linux-x86_64.tar.gz
 ```
 2. 解壓縮filebeat壓縮檔<BR><BR>
+  
 ```
 $ tar xzvf filebeat-7.7.0-linux-x86_64.tar.gz
 ```
 
 - #### 4.5.2 設定
 1. 修改Filebeat設定檔<BR>
+  
 ```
 $ sudo vi /path/to/your/filebeat.yml
 ```
+
 2. 在filebeat.yml裡面找到以下內容並修改:<BR>
+  
 ```
 #----------------------------- Logstash output --------------------------------
 output.logstash:
@@ -259,11 +270,19 @@ output.logstash:
   # Client Certificate Key
   #ssl.key: "/etc/pki/client/cert.key"
 ```
+
 - #### 4.5.3 測試
 暫不做測試，之後在使用情境範例中將會介紹如何確認
 
+--- 
 ## 5. ELK Stack 使用情境範例
 ![使用情境](https://github.com/yotzom/Document/blob/master/ELKonCloud_img/ExampleStucture.png)
 ### 5.1 說明
 
+--- 
 ## 6 Troubleshooting
+
+--- 
+## 7 Troubleshooting
+
+--- 
