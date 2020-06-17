@@ -42,8 +42,8 @@ Kibana是一個前端log視覺化網頁，它可以非常詳細的將日誌轉�
 
 ![ELK架構圖](https://github.com/yotzom/Document/blob/master/ELKonCloud_img/ELKstucture.png "ELK架構圖")
 
-### 2.1 在這裡簡單介紹下整個架構的連接架構:
-> Elasticsearch作為整個架構中的資料庫，所以只要掛掉或連線不通Kibana就會跟著掛掉!<BR>
+### 2.1 在這裡簡單介紹下整個架構中各程式負責的功能:
+> Elasticsearch作為整個架構中的資料庫，只要掛掉或連線不通Kibana就會跟著掛掉!<BR>
 > Kibana為架構中的唯一網頁介面，在裡面可以視覺化Elasticsearch中的資料。<BR>
 > Logstash可以直接當資料的收集器或者也可以當filebeat的中繼器。<BR>
 > Filebeat做為輕量化的收集器可取代在每台客機上安裝Logstash，可以讓客機的額外負載降到最低(安裝包大小約25M，Logstash:159M)。<BR>
