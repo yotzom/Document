@@ -4,7 +4,8 @@
 ### 2. [架構圖](https://github.com/yotzom/Document/blob/master/ELKonCloud.md#2-%E6%9E%B6%E6%A7%8B%E5%9C%96-1)
 ### 3. [虛擬機&軟體版本](https://github.com/yotzom/Document/blob/master/ELKonCloud.md#3-%E8%99%9B%E6%93%AC%E6%A9%9F%E8%BB%9F%E9%AB%94%E7%89%88%E6%9C%AC-1)
 ### 4. [ELK stack 安裝](https://github.com/yotzom/Document/blob/master/ELKonCloud.md#4-elk-stack-%E5%AE%89%E8%A3%9D-1)
-### 5. [Troubleshooting]()
+### 5. [ELK stack 使用情境範例]()
+### 6. [Troubleshooting]()
 --- 
 ## 1. ELK stack介紹
 
@@ -136,7 +137,7 @@
 
 - #### 4.4.2 設定
 1. 修改Logstash設定檔<BR><BR>
-sudo vi /etc/logstash/conf.d/logstash.yml
+`sudo vi /etc/logstash/conf.d/logstash.yml
 > (如果con.d底下沒有logstash.yml就新增一個)
 2. 在kibana.yml裡面新增以下內容:<BR>
 ```
@@ -157,7 +158,7 @@ output {
 ```
 
 - #### 4.4.3 測試
-暫不做測試，之後將整個架構連接起來時直接測試
+暫不做測試，之後在使用情境範例中將會介紹如何確認
 
 ### 4.5 Filebeat 安裝
 解釋下為甚麼這裡不選擇用跟前幾個相同的安裝方式，
@@ -173,5 +174,28 @@ output {
 `tar xzvf filebeat-7.7.0-linux-x86_64.tar.gz`<BR><BR>
 
 - #### 4.5.2 設定
+1. 修改Filebeat設定檔<BR>
+`sudo vi /path/to/your/filebeat.yml`<BR>
+2. 在filebeat.yml裡面找到以下內容並修改:<BR>
+```
+#----------------------------- Logstash output --------------------------------
+output.logstash:
+  # The Logstash hosts
+  hosts: ["'logstash ip':5044"]
+
+  # Optional SSL. By default is off.
+  # List of root certificates for HTTPS server verifications
+  #ssl.certificate_authorities: ["/etc/pki/root/ca.pem"]
+
+  # Certificate for SSL client authentication
+  #ssl.certificate: "/etc/pki/client/cert.pem"
+
+  # Client Certificate Key
+  #ssl.key: "/etc/pki/client/cert.key"
+```
 - #### 4.5.3 測試
-暫不做測試，之後將整個架構連接起來時直接測試
+暫不做測試，之後在使用情境範例中將會介紹如何確認
+
+## 5. ELK Stack 使用情境範例
+*Logstash需要依賴JDK，安裝logstash之前記得先安裝java環境。*
+### 5.1 建立Swap
