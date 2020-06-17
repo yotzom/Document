@@ -72,7 +72,7 @@
 - #### 4.2.2 設定
 1. 修改elasticsearch設定檔<BR><BR>
 `sudo vi /etc/elasticsearch/elasticsearch.yml`<BR><BR>
-2. 在elasticsearch.yml中找到找到以下兩個設定值並修改如下:<BR>
+2. 在elasticsearch.yml中找到以下兩個設定值並修改如下:<BR>
 + 監聽的IP (不修改的話僅能允許localhost訪問)<BR>
 `network.host: 0.0.0.0`<BR>
 + cluster IP or Hostname (沒有設定cluster的話，必須拿掉註解且[]中保持空白)<BR>
@@ -106,7 +106,7 @@
 - #### 4.3.2 設定
 1. 修改kibana設定檔<BR><BR>
 `sudo vi /etc/kibana/kibana.yml`<BR><BR>
-2. 在kibana.yml中找到找到以下三個設定值並修改如下:<BR><BR>
+2. 在kibana.yml中找到以下三個設定值並修改如下:<BR><BR>
 + 監聽的PORT<BR><BR>
 `server.port:5601`<BR><BR>
 + 監聽的IP<BR><BR>
@@ -135,7 +135,29 @@
 `sudo systemctl enable logstash`<BR>
 
 - #### 4.4.2 設定
+1. 修改Logstash設定檔<BR><BR>
+sudo vi /etc/logstash/conf.d/logstash.yml
+> (如果con.d底下沒有logstash.yml就新增一個)
+2. 在kibana.yml裡面新增以下內容:<BR>
+```
+input {
+  beats {
+    port => 5044
+  }
+}
+
+output {
+  elasticsearch {
+    hosts => ["http://'elasticsearch ip:port'"]
+    index => "test20200610"
+    #user => "elastic" #if you have account verification
+    #password => "changeme" #if you have account verification
+  }
+}
+```
+
 - #### 4.4.3 測試
+暫不做測試，之後將整個架構連接起來時直接測試
 
 ### 4.5 Filebeat 安裝
 解釋下為甚麼這裡不選擇用跟前幾個相同的安裝方式，
@@ -152,3 +174,4 @@
 
 - #### 4.5.2 設定
 - #### 4.5.3 測試
+暫不做測試，之後將整個架構連接起來時直接測試
