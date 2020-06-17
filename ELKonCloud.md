@@ -4,7 +4,7 @@
 ### 2. [架構圖](https://github.com/yotzom/Document/blob/master/ELKonCloud.md#2-%E6%9E%B6%E6%A7%8B%E5%9C%96-1)
 ### 3. [虛擬機&軟體版本](https://github.com/yotzom/Document/blob/master/ELKonCloud.md#3-%E8%99%9B%E6%93%AC%E6%A9%9F%E8%BB%9F%E9%AB%94%E7%89%88%E6%9C%AC-1)
 ### 4. [ELK stack 安裝](https://github.com/yotzom/Document/blob/master/ELKonCloud.md#4-elk-stack-%E5%AE%89%E8%A3%9D-1)
-### 5. [ELK stack 使用情境範例]()
+### 5. [ELK stack 使用情境範例](https://github.com/yotzom/Document/blob/master/ELKonCloud.md#5-elk-stack-%E4%BD%BF%E7%94%A8%E6%83%85%E5%A2%83%E7%AF%84%E4%BE%8B-1)
 ### 6. [Troubleshooting]()
 --- 
 ## 1. ELK stack介紹
@@ -263,5 +263,7 @@ output.logstash:
 暫不做測試，之後在使用情境範例中將會介紹如何確認
 
 ## 5. ELK Stack 使用情境範例
-*Logstash需要依賴JDK，安裝logstash之前記得先安裝java環境。*
-### 5.1 Troubleshooting
+![使用情境](https://github.com/yotzom/Document/blob/master/ELKonCloud_img/ExampleStucture.png)
+### 5.1 說明
+
+## 6 Troubleshooting
