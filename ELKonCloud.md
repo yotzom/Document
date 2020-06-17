@@ -81,7 +81,7 @@ $ cat /proc/sys/vm/swapiness
 ```
 2. 永久修改swapiness值(sudo gedit /etc/sysctl.conf)
 ```
-vm.swappiness=10
+vm.swappiness=100
 ```
 ### 4.2 Elasticsearch 安裝
 - #### 4.1.1 安裝
