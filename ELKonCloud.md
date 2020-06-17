@@ -56,7 +56,33 @@
 ## 4. ELK Stack 安裝
 *Logstash需要依賴JDK，安裝logstash之前記得先安裝java環境。*
 ### 4.1 建立Swap
-
+此為選擇性選項，視自己的情況選擇
+這裡會使用的原因是因為線上的VM給的RAM都1G左右完全不夠使用，所以才會想到要使用SWAP來加大記憶體空間
+- #### 4.1.1 確認現有記憶體空間
+```
+$ df -h
+```
+- #### 4.1.2 建立swap檔案
+```
+$ sudo fallocate -l 1G /swapadd
+```
+- #### 4.1.3 將檔案標示為swap
+```
+$ sudo mkswap /swapadd 
+```
+- #### 4.1.4 啟用此swap
+```
+$ sudo swapon /swapadd
+```
+- #### 4.1.5 調整swap和ram的選擇優先程度
+1. 查看當前ram&swap使用優先程度 (0~100，0:ram最優先 100:swap最優先)
+```
+$ cat /proc/sys/vm/swapiness
+```
+2. 永久修改swapiness值(sudo gedit /etc/sysctl.conf)
+```
+vm.swappiness=10
+```
 ### 4.2 Elasticsearch 安裝
 - #### 4.1.1 安裝
 1. 允許套件管理器可以下載https來源的套件 (如有安裝過就不用再重複安裝)<BR><BR>
@@ -198,4 +224,4 @@ output.logstash:
 
 ## 5. ELK Stack 使用情境範例
 *Logstash需要依賴JDK，安裝logstash之前記得先安裝java環境。*
-### 5.1 建立Swap
+### 5.1 Troubleshooting
