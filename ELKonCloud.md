@@ -86,19 +86,31 @@ vm.swappiness=10
 ### 4.2 Elasticsearch 安裝
 - #### 4.1.1 安裝
 1. 允許套件管理器可以下載https來源的套件 (如有安裝過就不用再重複安裝)<BR><BR>
-`sudo apt-get install apt-transport-https`<BR><BR>
+```
+$ sudo apt-get install apt-transport-https
+```
 2. 下載並安裝elastic的公鑰<BR><BR>
-`wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -`<BR><BR>
+```
+$ wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+```
 3. 新增repository<BR><BR>
-`echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list`<BR><BR>
+```
+$ echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
+```
 4. 更新套件料表並安裝elasticsearch<BR><BR>
-`sudo apt-get update && sudo apt-get install elasticsearch`<BR><BR>
+```
+$ sudo apt-get update && sudo apt-get install elasticsearch
+```
 5. 設定開機自啟動<BR><BR>
-`sudo systemctl enable elasticsearch`<BR>
+```
+$ sudo systemctl enable elasticsearch
+```
 
 - #### 4.2.2 設定
 1. 修改elasticsearch設定檔<BR><BR>
-`sudo vi /etc/elasticsearch/elasticsearch.yml`<BR><BR>
+```
+$ sudo vi /etc/elasticsearch/elasticsearch.yml
+```
 2. 在elasticsearch.yml中找到以下兩個設定值並修改如下:<BR>
 + 監聽的IP (不修改的話僅能允許localhost訪問)<BR>
 `network.host: 0.0.0.0`<BR>
@@ -120,19 +132,31 @@ vm.swappiness=10
 ### 4.3 Kibana 安裝
 - #### 4.3.1 安裝
 1. 允許套件管理器可以下載https來源的套件 (如有安裝過就不用再重複安裝)<BR><BR>
-`sudo apt-get install apt-transport-https`<BR><BR>
+```
+$ sudo apt-get install apt-transport-https
+```
 2. 下載並安裝elastic的公鑰<BR><BR>
-`wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -`<BR><BR>
+```
+$ wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+```
 3. 新增repository<BR><BR>
-`echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list`<BR><BR>
+```
+$ echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
+```
 4. 更新套件列表並安裝kibana<BR><BR>
-`sudo apt-get update && sudo apt-get install kibana`<BR><BR>
+```
+$ sudo apt-get update && sudo apt-get install kibana
+```
 5. 設定開機自啟動<BR><BR>
-`sudo systemctl enable kibana`<BR>
+```
+$ sudo systemctl enable kibana
+```
 
 - #### 4.3.2 設定
 1. 修改kibana設定檔<BR><BR>
-`sudo vi /etc/kibana/kibana.yml`<BR><BR>
+```
+$ sudo vi /etc/kibana/kibana.yml
+```
 2. 在kibana.yml中找到以下三個設定值並修改如下:<BR><BR>
 + 監聽的PORT<BR><BR>
 `server.port:5601`<BR><BR>
@@ -151,15 +175,25 @@ vm.swappiness=10
 ### 4.4 Logstash 安裝
 - #### 4.4.1 安裝
 1. 允許套件管理器可以下載https來源的套件 (如有安裝過就不用再重複安裝)<BR><BR>
-`sudo apt-get install apt-transport-https`<BR><BR>
+```
+$ sudo apt-get install apt-transport-https
+```
 2. 下載並安裝elastic的公鑰<BR><BR>
-`wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -`<BR><BR>
+```
+$ wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+```
 3. 新增repository<BR><BR>
-`echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list`<BR><BR>
+```
+$ echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
+```
 4. 更新套件列表並安裝logstash<BR><BR>
-`sudo apt-get update && sudo apt-get install logstash`<BR><BR>
+```
+$ sudo apt-get update && sudo apt-get install logstash
+```
 5. 設定開機自啟動<BR><BR>
-`sudo systemctl enable logstash`<BR>
+```
+$ sudo systemctl enable logstash
+```
 
 - #### 4.4.2 設定
 1. 修改Logstash設定檔<BR><BR>
@@ -195,13 +229,19 @@ output {
 
 - #### 4.5.1 安裝
 1. 下載filebeat壓縮檔<BR><BR>
-`curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.7.0-linux-x86_64.tar.gz`<BR><BR>
+```
+$ curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.7.0-linux-x86_64.tar.gz
+```
 2. 解壓縮filebeat壓縮檔<BR><BR>
-`tar xzvf filebeat-7.7.0-linux-x86_64.tar.gz`<BR><BR>
+```
+$ tar xzvf filebeat-7.7.0-linux-x86_64.tar.gz
+```
 
 - #### 4.5.2 設定
 1. 修改Filebeat設定檔<BR>
-`sudo vi /path/to/your/filebeat.yml`<BR>
+```
+$ sudo vi /path/to/your/filebeat.yml
+```
 2. 在filebeat.yml裡面找到以下內容並修改:<BR>
 ```
 #----------------------------- Logstash output --------------------------------
