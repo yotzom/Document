@@ -244,7 +244,7 @@ input {
 output {
   elasticsearch {
     hosts => ["http://'elasticsearch ip:port'"]
-    index => "test20200610"
+    index => "%{+YYYY.MM.dd}-index"
     #user => "elastic" #if you have account verification
     #password => "changeme" #if you have account verification
   }
@@ -305,11 +305,56 @@ output.logstash:
 ## 5. ELK Stack 使用情境範例
 ![使用情境](https://github.com/yotzom/Document/blob/master/ELKonCloud_img/ExampleStucture.png)
 ### 5.1 說明
+假設在你建好ELK stack後，你有一個AP Server中的軟體的使用紀錄需要被監控，<BR>
+這時就可以在那台AP Server下載filebeat，並參考上述的filebeat設定就可以在Kibana中看到此log檔的內容了。
 
+本次範例使用windows當作那台需要被監控的AP Server，所以如果要在Linux或是MacOS上使用的話，<BR>
+要根據自己的狀況修改指令和設定檔。
+### 5.2 詳細步驟
+1. 下載filebeat
+  Linux可參考上方filebeat的安裝說明
+  Windows下載連結:[Link](https://github.com/yotzom/Document/blob/master/ELKonCloud_img/filebeat_download.png)
+  
+2. 安裝filebeat
+  1. 使用管理員權限開啟powershell
+  [powershell run as admin](https://github.com/yotzom/Document/blob/master/ELKonCloud_img/powershell_run_as_admin.png)
+  2. 更換目錄到剛才下載的filebeat資料夾
+  ```
+  cd D:\path\to\your\filebeat\folder
+  ```
+  3. 開始安裝filebeat
+  ```
+  PowerShell.exe -ExecutionPolicy UnRestricted -File .\install-service-filebeat.ps1.
+  ```
+  
+3. 設定filebeat.yml設定檔
+  + 修改filebeat.yml (預設路徑在filebeat資料夾中，之後可以更改路徑，只要在指令中指定filebeat.yml的位置即可)
+  啟用filebeat.input設定並修改paths路徑到你要監控的log檔
+  ```
+  filebeat.inputs:
+
+# Each - is an input. Most options can be set at the input level, so
+# you can use different inputs for various configurations.
+# Below are the input specific configurations.
+
+- type: log
+
+  # Change to true to enable this input configuration.
+  enabled: true
+
+  # Paths that should be crawled and fetched. Glob based paths.
+  paths:
+    - D:\filebeat\testlog\*
+  ```
+  修改logstash IP
+  ```
+  output.logstash:
+  # The Logstash hosts
+  hosts: ["'logstash ip':5044"]
+  ```
+4. 開啟Kibana確認是否有進到資料庫
+  [result](https://github.com/yotzom/Document/blob/master/ELKonCloud_img/result.png)
 --- 
 ## 6 Troubleshooting
-
---- 
-## 7 Troubleshooting
 
 --- 
