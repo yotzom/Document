@@ -1,12 +1,11 @@
 # Elasticsearch、Logstash及Kibana雲端架設安裝流程
 
-### 1. [ELK stack介紹]()
+### 1. [ELK stack介紹](https://github.com/yotzom/Document/blob/master/ELKonCloud.md#1-elk-stack%E4%BB%8B%E7%B4%B9-1)
 ### 2. [架構圖](https://github.com/yotzom/Document/blob/master/ELKonCloud.md#2-%E6%9E%B6%E6%A7%8B%E5%9C%96-1)
 ### 3. [虛擬機&軟體版本](https://github.com/yotzom/Document/blob/master/ELKonCloud.md#3-%E8%99%9B%E6%93%AC%E6%A9%9F%E8%BB%9F%E9%AB%94%E7%89%88%E6%9C%AC-1)
 ### 4. [ELK stack 安裝](https://github.com/yotzom/Document/blob/master/ELKonCloud.md#4-elk-stack-%E5%AE%89%E8%A3%9D-1)
 ### 5. [ELK stack 使用情境範例](https://github.com/yotzom/Document/blob/master/ELKonCloud.md#5-elk-stack-%E4%BD%BF%E7%94%A8%E6%83%85%E5%A2%83%E7%AF%84%E4%BE%8B-1)
-### 6. [Troubleshooting]()
-### 7. [Future]()
+
 --- 
 ## 1. ELK stack介紹
 ELK是由三個工具組合而成的，Elasticsearch + Logstash + Kibana，這三個工具組合形成了一套監控架構，許多公司用此架構來建立視覺化的log分析系統。
@@ -314,16 +313,20 @@ output.logstash:
 1. 下載filebeat
   Linux可參考上方filebeat的安裝說明
   Windows下載連結:[Link](https://www.elastic.co/downloads/beats/filebeat)
-  ![filebeat download](https://github.com/yotzom/Document/blob/master/ELKonCloud_img/filebeat_download.png)
+  <p align="center">
+    <img width="50%" height="50%" src="https://github.com/yotzom/Document/blob/master/ELKonCloud_img/filebeat_download.png">
+  </p>
   
 2. 安裝filebeat
-  1. 使用管理員權限開啟powershell
-  ![powershell run as admin](https://github.com/yotzom/Document/blob/master/ELKonCloud_img/powershell_run_as_admin.png)
-  2. 更換目錄到剛才下載的filebeat資料夾
+  a. 使用管理員權限開啟powershell
+  <p align="center">
+    <img width="50%" height="50%" src="https://github.com/yotzom/Document/blob/master/ELKonCloud_img/powershell_run_as_admin.png">
+  </p>
+  b. 更換目錄到剛才下載的filebeat資料夾
   ```
   cd D:\path\to\your\filebeat\folder
   ```
-  3. 開始安裝filebeat
+  c. 開始安裝filebeat
   ```
   PowerShell.exe -ExecutionPolicy UnRestricted -File .\install-service-filebeat.ps1.
   ```
@@ -354,8 +357,6 @@ output.logstash:
   hosts: ["'logstash ip':5044"]
   ```
 4. 開啟Kibana確認是否有進到資料庫
-  ![result](https://github.com/yotzom/Document/blob/master/ELKonCloud_img/result.png)
---- 
-## 6 Troubleshooting
-
---- 
+  <p align="center">
+    <img width="100%" height="100%" src="https://github.com/yotzom/Document/blob/master/ELKonCloud_img/result.png">
+  </p>
