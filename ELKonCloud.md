@@ -4,21 +4,51 @@
 ### 2. [架構圖](https://github.com/yotzom/Document/blob/master/ELKonCloud.md#2-%E6%9E%B6%E6%A7%8B%E5%9C%96-1)
 ### 3. [虛擬機&軟體版本](https://github.com/yotzom/Document/blob/master/ELKonCloud.md#3-%E8%99%9B%E6%93%AC%E6%A9%9F%E8%BB%9F%E9%AB%94%E7%89%88%E6%9C%AC-1)
 ### 4. [ELK stack 安裝](https://github.com/yotzom/Document/blob/master/ELKonCloud.md#4-elk-stack-%E5%AE%89%E8%A3%9D-1)
-### 5. [ELK stack 使用情境範例]()
+### 5. [ELK stack 使用情境範例](https://github.com/yotzom/Document/blob/master/ELKonCloud.md#5-elk-stack-%E4%BD%BF%E7%94%A8%E6%83%85%E5%A2%83%E7%AF%84%E4%BE%8B-1)
 ### 6. [Troubleshooting]()
+### 7. [Future]()
 --- 
 ## 1. ELK stack介紹
+ELK是由三個工具組合而成的，Elasticsearch + Logstash + Kibana，這三個工具組合形成了一套監控架構，許多公司用此架構來建立視覺化的log分析系統。
 
+1. ElasticSearch
+ElasticSearch是一個基於Lucene的搜尋伺服器。它提供了一個分散式多用戶的全文搜尋引擎，並提供RESTfulAPI接口。Elasticsearch是用Java開發的，並作為Apache許可條款下的開放源碼發布，是當前流行的企業級搜尋引擎。設計用於雲處理，能夠達到實時搜尋，穩定，可靠，快速，安裝使用方便。
+
+2. Logstash
+Logstash是一個用於管理log和事件的工具，你可以用它去收集log、轉換log、解析log並將他們作為數據提供給其它功能使用，例如搜尋、儲存等。
+
+3. Kibana
+Kibana是一個前端log視覺化網頁，它可以非常詳細的將日誌轉化為各種圖表，為用戶提供強大的數據視覺化。
+
+1.1 ELK優點
+1. 快速的搜尋功能，elasticsearch可以以分散式搜尋的方式快速搜尋，而且支持DSL的語法來進行搜尋，簡單的說，就是通過類似配置的語言，快速篩選數據。
+
+2. 強大的展示功能，可以展示非常詳細的圖表信息，而且可以定製展示內容，將數據可視化發揮的淋漓盡致。
+
+3. 分散式功能，能夠解決大型群集維運工作很多問題，包括監控、預警、log收集解析等。
+
+1.2 ELK可以用來做什麼?
+- 分散式log數據集中式查詢和管理
+- 系統監控，包含系統硬體和應用各個組件的監控
+- 故障排查
+- 安全信息和事件管理
+- 報表功能
+- log查詢，問題排查，上線檢查
+- 伺服器監控，應用監控，錯誤報警，Bug管理
+- 性能分析，用戶行為分析，安全漏洞分析，時間管理
+
+--- 
 ## 2. 架構圖
 
 ![ELK架構圖](https://github.com/yotzom/Document/blob/master/ELKonCloud_img/ELKstucture.png "ELK架構圖")
 
-### 2.1 在這裡簡單介紹下整個架構的連接架構:
-> Elasticsearch作為整個架構中的資料庫，所以只要掛掉或連線不通Kibana就會跟著掛掉!<BR>
+### 2.1 在這裡簡單介紹下整個架構中各程式負責的功能:
+> Elasticsearch作為整個架構中的資料庫，只要掛掉或連線不通Kibana就會跟著掛掉!<BR>
 > Kibana為架構中的唯一網頁介面，在裡面可以視覺化Elasticsearch中的資料。<BR>
 > Logstash可以直接當資料的收集器或者也可以當filebeat的中繼器。<BR>
 > Filebeat做為輕量化的收集器可取代在每台客機上安裝Logstash，可以讓客機的額外負載降到最低(安裝包大小約25M，Logstash:159M)。<BR>
   
+--- 
 ## 3. 虛擬機&軟體版本
 ### 3.1 雲端服務虛擬機
 + Google Cloud Platform - g1-small
@@ -53,6 +83,7 @@
 **注意:以上4個軟體版本最好保持同一版本，最多只能小版本號不一樣(Ex. 7.7.0 7.7.1)，不然極有可能導致一堆不可預期的Bug，此為官方特別提醒的!**
 [官網參考連結](https://www.elastic.co/guide/en/elastic-stack/current/installing-elastic-stack.html "https://www.elastic.co/guide/en/elastic-stack/current/installing-elastic-stack.html")
 
+--- 
 ## 4. ELK Stack 安裝
 *Logstash需要依賴JDK，安裝logstash之前記得先安裝java環境。*
 ### 4.1 建立Swap
@@ -197,9 +228,12 @@ $ sudo systemctl enable logstash
 
 - #### 4.4.2 設定
 1. 修改Logstash設定檔<BR><BR>
-`sudo vi /etc/logstash/conf.d/logstash.yml
+```
+$ sudo vi /etc/logstash/conf.d/logstash.yml
+```
 > (如果con.d底下沒有logstash.yml就新增一個)
 2. 在kibana.yml裡面新增以下內容:<BR>
+  
 ```
 input {
   beats {
@@ -233,16 +267,20 @@ output {
 $ curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.7.0-linux-x86_64.tar.gz
 ```
 2. 解壓縮filebeat壓縮檔<BR><BR>
+  
 ```
 $ tar xzvf filebeat-7.7.0-linux-x86_64.tar.gz
 ```
 
 - #### 4.5.2 設定
 1. 修改Filebeat設定檔<BR>
+  
 ```
 $ sudo vi /path/to/your/filebeat.yml
 ```
+
 2. 在filebeat.yml裡面找到以下內容並修改:<BR>
+  
 ```
 #----------------------------- Logstash output --------------------------------
 output.logstash:
@@ -259,9 +297,19 @@ output.logstash:
   # Client Certificate Key
   #ssl.key: "/etc/pki/client/cert.key"
 ```
+
 - #### 4.5.3 測試
 暫不做測試，之後在使用情境範例中將會介紹如何確認
 
+--- 
 ## 5. ELK Stack 使用情境範例
-*Logstash需要依賴JDK，安裝logstash之前記得先安裝java環境。*
-### 5.1 Troubleshooting
+![使用情境](https://github.com/yotzom/Document/blob/master/ELKonCloud_img/ExampleStucture.png)
+### 5.1 說明
+
+--- 
+## 6 Troubleshooting
+
+--- 
+## 7 Troubleshooting
+
+--- 
