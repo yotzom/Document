@@ -318,18 +318,18 @@ output.logstash:
   </p>
   
 2. 安裝filebeat
-  >> a. 使用管理員權限開啟powershell
+  >a. 使用管理員權限開啟powershell
   
   <p align="center">
     <img width="50%" height="50%" src="https://github.com/yotzom/Document/blob/master/ELKonCloud_img/powershell_run_as_admin.png">
   </p>
   
-  >> b. 更換目錄到剛才下載的filebeat資料夾
+  >b. 更換目錄到剛才下載的filebeat資料夾
   
   ```
   cd D:\path\to\your\filebeat\folder
   ```
-  >> c. 開始安裝filebeat
+  >c. 開始安裝filebeat
   
   ```
   PowerShell.exe -ExecutionPolicy UnRestricted -File .\install-service-filebeat.ps1.
