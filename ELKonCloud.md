@@ -313,11 +313,12 @@ output.logstash:
 ### 5.2 詳細步驟
 1. 下載filebeat
   Linux可參考上方filebeat的安裝說明
-  Windows下載連結:[Link](https://github.com/yotzom/Document/blob/master/ELKonCloud_img/filebeat_download.png)
+  Windows下載連結:[Link](https://www.elastic.co/downloads/beats/filebeat)
+  ![filebeat download](https://github.com/yotzom/Document/blob/master/ELKonCloud_img/filebeat_download.png)
   
 2. 安裝filebeat
   1. 使用管理員權限開啟powershell
-  [powershell run as admin](https://github.com/yotzom/Document/blob/master/ELKonCloud_img/powershell_run_as_admin.png)
+  ![powershell run as admin](https://github.com/yotzom/Document/blob/master/ELKonCloud_img/powershell_run_as_admin.png)
   2. 更換目錄到剛才下載的filebeat資料夾
   ```
   cd D:\path\to\your\filebeat\folder
@@ -353,7 +354,7 @@ output.logstash:
   hosts: ["'logstash ip':5044"]
   ```
 4. 開啟Kibana確認是否有進到資料庫
-  [result](https://github.com/yotzom/Document/blob/master/ELKonCloud_img/result.png)
+  ![result](https://github.com/yotzom/Document/blob/master/ELKonCloud_img/result.png)
 --- 
 ## 6 Troubleshooting
 
