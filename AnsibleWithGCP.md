@@ -93,16 +93,17 @@ clone https://github.com/GoogleCloudPlatform/compute-video-demo-ansible.git
   <BR>前置作業
 </p>
  1.在GCP創建一個帳戶並新增一個專案
- 2.點選頁面左上方的切換專案，複製下專案ID
- ![]()
+ 
+ 2.點選頁面左上方的切換專案，複製下專案ID ![]()
+
  3.必須在你的專案中新增一個付款方式，後續才能使用GCE(使用試用帳戶也是可以的)
- 4.建立一個此專案的服務帳戶，名子推薦為"demo-ansible"，也可以自訂但不推薦使用GCP預設服務帳戶名稱，
- 並且以此帳號創建一個JSON格式的SSH私鑰。
- [Link](https://cloud.google.com/compute/docs/access/service-accounts#serviceaccount)
- 5.在安裝Ansible的主機安裝Cloud SDK，並成功驗證身分
- [Link](https://cloud.google.com/sdk/)
- 6.確保在GCP已經新增好你的Ansible主機SSH公鑰，並已測試過可以使用```gcloud compute ssh```連線現有的GCE Instance
- [Link](https://medium.com/@pk60905/google-compute-engine-%E5%A6%82%E4%BD%95%E9%80%A3%E7%B7%9A%E8%87%B3linux%E5%9F%B7%E8%A1%8C%E5%80%8B%E9%AB%94-b048fdfbaff3)
+ 
+ 4.建立一個此專案的服務帳戶，名子推薦為"demo-ansible"，也可以自訂但不推薦使用GCP預設服務帳戶名稱， 並且以此帳號創建一個JSON格式的SSH私鑰。 [參考連結](https://cloud.google.com/compute/docs/access/service-accounts#serviceaccount)
+
+ 5.在安裝Ansible的主機安裝Cloud SDK，並成功驗證身分 [參考連結](https://cloud.google.com/sdk/)
+
+ 6.確保在GCP已經新增好你的Ansible主機SSH公鑰，並已測試過可以使用```gcloud compute ssh```連線現有的GCE Instance [參考連結](https://medium.com/@pk60905/google-compute-engine-%E5%A6%82%E4%BD%95%E9%80%A3%E7%B7%9A%E8%87%B3linux%E5%9F%B7%E8%A1%8C%E5%80%8B%E9%AB%94-b048fdfbaff3)
+
  7.預設你的SSH私鑰位置是$HOME/.ssh/google_compute_engine
  
 #### 4-1-3. 
