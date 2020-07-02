@@ -8,12 +8,19 @@
 ## 1. Infrastructure as code介紹
 
 在開始介紹Ansible之前先來段前情提要，在IaC(Infrastructure as code)的概念還未出現時，<BR>
+ 
 要開設一個testing/staging/production的環境時，會先建立三個環境都共用的系統和設定，<BR>
+ 
 然後再根據三台不同的特性用CLI去分別設定，這時如果要去修改一個共用的設定時，<BR>
+ 
 必須在三台機器重複做同樣的事，那如果這個修改需要很多步驟呢?<BR>
+ 
 不只需要花費大量時間做同樣的事，還有可能因為一個疏忽設定錯誤而造成三個環境開始產生差異；<BR><BR>
+ 
 在IaC的概念出現後，原本要用人來操作CLI不能自動化的思維被打破了，<BR>
+ 
 取而代之的以寫 code 的方式去部署、管理、維護 Infrastructure，由「人」來擬定好機器要做的腳本，<BR>
+ 
 讓「機器」透過你寫好的腳本來自動化部署、管理、維護，這帶來了以下幾點好處：<BR>
 
 - 速度與可靠性，任何的設定、修改都是全自動化的，這比透過 UI/CLI 操作來的更加快速與可靠。
@@ -102,22 +109,71 @@ clone https://github.com/GoogleCloudPlatform/compute-video-demo-ansible.git
 
  ##### 3.必須在你的專案中新增一個付款方式，後續才能使用GCE(使用試用帳戶也是可以的)
  
- ##### 4.建立一個此專案的服務帳戶，名子推薦為"demo-ansible"，也可以自訂但不推薦使用GCP預設服務帳戶名稱， 並且以此帳號創建一個JSON格式的SSH私鑰。 [參考連結](https://cloud.google.com/compute/docs/access/service-accounts#serviceaccount)
+ ##### 4.建立一個此專案的服務帳戶，名子推薦為"demo-ansible"，也可以自訂但不推薦使用GCP預設服務帳戶名稱， 並且以此帳號創建一個JSON格式的SSH私鑰。 
+ 
+ [參考連結](https://cloud.google.com/compute/docs/access/service-accounts#serviceaccount)
 
- ##### 5.在安裝Ansible的主機安裝Cloud SDK，並成功驗證身分 [參考連結](https://cloud.google.com/sdk/)
+ ##### 5.在安裝Ansible的主機安裝Cloud SDK，並成功驗證身分 
+ 
+ [參考連結](https://cloud.google.com/sdk/)
 
- ##### 6.確保在GCP已經新增好你的Ansible主機SSH公鑰，並已測試過可以使用```gcloud compute ssh```連線現有的GCE Instance [參考連結](https://medium.com/@pk60905/google-compute-engine-%E5%A6%82%E4%BD%95%E9%80%A3%E7%B7%9A%E8%87%B3linux%E5%9F%B7%E8%A1%8C%E5%80%8B%E9%AB%94-b048fdfbaff3)
+ ##### 6.確保在GCP已經新增好你的Ansible主機SSH公鑰，並已測試過可以使用```gcloud compute ssh```連線現有的GCE Instance 
+ 
+ [參考連結](https://medium.com/@pk60905/google-compute-engine-%E5%A6%82%E4%BD%95%E9%80%A3%E7%B7%9A%E8%87%B3linux%E5%9F%B7%E8%A1%8C%E5%80%8B%E9%AB%94-b048fdfbaff3)
 
  ##### 7.預設你的SSH私鑰位置是$HOME/.ssh/google_compute_engine
  
-#### 4-1-3. 
-#### 4-1-4. 
-#### 4-1-5. 
-#### 4-1-6. 
-#### 4-1-7. 
-#### 4-1-8. 
-#### 4-1-9. 
-#### 4-1-10. 
+#### 4-1-3. 安裝依賴套件
+```
+sudo apt install -y build-essential git python-dev python-pip
+```
+
+#### 4-1-4. 安裝Google認證和requests套件
+```
+pip install googleauth requests
+```
+
+#### 4-1-5. For the purposes of the demo, you can set a couple of environment variables to simplify your commands and SSH interactions.
+```
+export ANSIBLE_HOST_KEY_CHECKING=False
+```
+
+#### 4-1-6. 修改gce_vars/auth中的project&credentials_file
+```
+# Google Compute Engine required authentication global variables
+# (Replace 'YOUR_PROJECT_ID' with the Project ID used in creating your GCP project.)
+project: i-monolith-XXXXXXX #<-修改此項project_id
+credentials_file: ~/i-monolith-XXXXXXX-XXXXXXXXXXXX.json #<-修改此項 服務帳戶認證json檔存放位置
+auth_kind: serviceaccount
+```
+
+#### 4-1-7. 修改group_vars/all中的ansible_ssh_user&ansible_ssh_private_key_file
+```
+# group_vars/all
+# --------------------
+#
+# Variables to be set for dynamic hosts.
+---
+ansible_ssh_user: user
+ansible_ssh_private_key_file: ~/.ssh/google_compute_engine
+```
+
+#### 4-1-8. 修改gce_vars/auth中的zone&region
+```
+---
+# Variables defined for us-central1-a
+name_zonea: myinstance1
+name_zoneb: myinstance2
+zone: asia-east1-a
+region: asia-east1
+```
+
+#### 4-1-9. 執行playbook
+```
+ansible-playbook -i ansible_hosts site.yml
+```
+
+#### 4-1-10. 成功畫面
 
 ### 4-2. 各模組介紹
       - 
