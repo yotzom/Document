@@ -1,10 +1,8 @@
 # Ansible add multi google cloud platform compute engine
-### 1. [Infrastructure as code介紹]()
-### 2. [Ansible介紹]()
-### 3. [Ansible安裝]()
-### 4. [Ansible連接GCP架構與說明]()
-### 5. [各細部模組講解]()
-### 6. [DEMO : Ansible新增多台GCP VM]()
+### 1. [Infrastructure as code介紹](https://github.com/yotzom/Document/blob/master/AnsibleWithGCP.md#1-infrastructure-as-code%E4%BB%8B%E7%B4%B9-1)
+### 2. [Ansible介紹](https://github.com/yotzom/Document/blob/master/AnsibleWithGCP.md#2-ansible%E4%BB%8B%E7%B4%B9-1)
+### 3. [Ansible安裝](https://github.com/yotzom/Document/blob/master/AnsibleWithGCP.md#3-ansible%E5%AE%89%E8%A3%9D-1)
+### 4. [DEMO : Ansible新增多台GCP VM]()
 
 --- 
 ## 1. Infrastructure as code介紹
@@ -81,4 +79,15 @@ ansible all -i ./hosts -u host_username --private-key ~/gcp_ssh_key/id_rsa -m pi
 </p>
 
 ---
-## 4.
+## 4. Ansible連接GCP架構與說明
+### 1.demo
+### 2.連結架構介紹
+### 3.各模組介紹
+      - 
+      - 
+      - 
+      -  
+      - 
+      - 
+      - 
+  
