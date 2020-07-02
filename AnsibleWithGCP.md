@@ -9,6 +9,7 @@
 --- 
 ## 1. Infrastructure as code介紹
 
+**
 在開始介紹Ansible之前先來段前情提要，在IaC(Infrastructure as code)的概念還未出現時，<BR>
 要開設一個testing/staging/production的環境時，會先建立三個環境都共用的系統和設定，<BR>
 然後再根據三台不同的特性用CLI去分別設定，這時如果要去修改一個共用的設定時，<BR>
@@ -17,6 +18,7 @@
 在IaC的概念出現後，原本要用人來操作CLI不能自動化的思維被打破了，<BR>
 取而代之的以寫 code 的方式去部署、管理、維護 Infrastructure，由「人」來擬定好機器要做的腳本，<BR>
 讓「機器」透過你寫好的腳本來自動化部署、管理、維護，這帶來了以下幾點好處：<BR>
+**
 
 - 速度與可靠性，任何的設定、修改都是全自動化的，這比透過 UI/CLI 操作來的更加快速與可靠。
  
@@ -30,6 +32,7 @@
 
 ## 2. Ansible介紹
 
+**
 Ansible官網的標題是"Ansible is Simple IT Automation"——簡單的自動化IT工具。
 
 Ansible 是基於Python開發的自動化管理工具，即是IaC的一種實作，實現了以下等功能:
@@ -40,5 +43,6 @@ Ansible 是基於Python開發的自動化管理工具，即是IaC的一種實作
 
 Ansible 基於 Python paramiko 開發的，分布式、無需客戶端、輕量級，配置語法使用 YMAL 及 Jinja2模板語言；
 是基於module在工作的，本身沒有批量部署的能力。真正具有批量部署的是 Ansible 所運行的模塊，Ansible 只是提供一種框架。進而能減少我們的重複操作，提高工作效率。
+**
 
 --- 
