@@ -89,12 +89,13 @@ clone https://github.com/GoogleCloudPlatform/compute-video-demo-ansible.git
 ```
 #### 4-1-2. 根據readme修改相關設定
 <p align="center">
-  <img width="70%" height="70%" src="">
+  <img width="70%" height="70%" src="https://github.com/yotzom/Document/blob/master/AnsibleWithGCP_img/preparation.png">
   <BR>前置作業
 </p>
+ 
  1.在GCP創建一個帳戶並新增一個專案
  
- 2.點選頁面左上方的切換專案，複製下專案ID ![]()
+ 2.點選頁面左上方的切換專案，複製下專案ID ![參考畫面](https://github.com/yotzom/Document/blob/master/AnsibleWithGCP_img/project_number.png)
 
  3.必須在你的專案中新增一個付款方式，後續才能使用GCE(使用試用帳戶也是可以的)
  
