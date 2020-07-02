@@ -42,32 +42,32 @@ Ansible 基於 Python paramiko 開發的，分布式、無需客戶端、輕量�
 
 --- 
 ## 3. Ansible安裝
-1.更新apt套件清單
+### 3-1.更新apt套件清單
 ```
 sudo apt update
 ```
-2.安裝Ansible
+### 3-2.安裝Ansible
 ```
 sudo apt install ansible
 ```
-3.確認是否安裝成功
+### 3-3.確認是否安裝成功
 ```
 ansible --version
 ```
-4.ansible的安裝就是這麼簡單，跟其他linux程式安裝方式一樣，好的那麼就...結束 收工回家(X
+### 3-4.ansible的安裝就是這麼簡單，跟其他linux程式安裝方式一樣，好的那麼就...結束 收工回家(X
 ```
 當然沒那麼快，這裡先測試連線到GCP的VM測試是否真的可以用
 ```
-5.確認GCP VM的SSH是否有開啟
+### 3-5.確認GCP VM的SSH是否有開啟
 ```
 sudo service sshd status
 ```
-6.在家目錄下新增一個檔案檔名為hosts，裡面加入要host的IP or HOSTNAME
+### 3-6.在家目錄下新增一個檔案檔名為hosts，裡面加入要host的IP or HOSTNAME
 ```
 格式如下
 35.185.129.150 gcp
 ```
-7.測試連線，成功畫面如下圖
+### 3-7.測試連線，成功畫面如下圖
 ```
 ansible all -i ./hosts -u host_username --private-key ~/gcp_ssh_key/id_rsa -m ping
 這裡因為是要連接的是GCP的VM，所以才會用到ssh_key沒有的話可以使用--ask-pass會在需要密碼時詢問你，
@@ -80,9 +80,9 @@ ansible all -i ./hosts -u host_username --private-key ~/gcp_ssh_key/id_rsa -m pi
 
 ---
 ## 4. Ansible連接GCP架構與說明
-### 1.demo
-### 2.連結架構介紹
-### 3.各模組介紹
+### 4-1.demo
+### 4-2.連結架構介紹
+### 4-3.各模組介紹
       - 
       - 
       - 
