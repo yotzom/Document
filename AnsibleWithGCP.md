@@ -173,16 +173,20 @@ region: asia-east1
 ansible-playbook -i ansible_hosts site.yml
 ```
 
-#### 4-1-10. 成功畫面
+#### 4-1-10. 成功結果
+在GCP上可以看到新增的兩台新機器，在網頁上樹入這兩台機器的外部IP如果有順利開啟網頁就代表成功了!
 
 ### 4-2. 各模組介紹
-      - 
-      - 
-      - 
-      - 
-      - 
-      - 
-      - 
+      - gcp_compute_address
+      - gcp_compute_instance
+      - wait_for
+      - add_host
+      - command
+      - apt
+      - template
+      - file
+      - copy
+      - service
 ### 4-3. 連結架構介紹
 這裡會特別來說明Ansible和GCP如何連接的原因是，
 我在剛碰到Ansible時，看到的介紹和實作教學都只有實際操作並沒有說背後是怎麼運作的，
