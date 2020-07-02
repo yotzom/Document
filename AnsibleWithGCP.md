@@ -174,7 +174,7 @@ ansible-playbook -i ansible_hosts site.yml
 ```
 
 #### 4-1-10. 成功結果
-在GCP上可以看到新增的兩台新機器，在網頁上樹入這兩台機器的外部IP如果有順利開啟網頁就代表成功了!
+在GCP上可以看到新增的兩台新機器，在網頁上輸入這兩台機器的外部IP如果有順利開啟網頁就代表成功了!
 
 ### 4-2. 各模組介紹
       - gcp_compute_address
@@ -191,6 +191,6 @@ ansible-playbook -i ansible_hosts site.yml
 這裡會特別來說明Ansible和GCP如何連接的原因是，
 我在剛碰到Ansible時，看到的介紹和實作教學都只有實際操作並沒有說背後是怎麼運作的，
 可是就會很好奇Ansible到底是怎麼告訴GCP我要新增機器的，是用RESTfulAPI嗎?還是GCP有寫好的程式呢?
-針對上訴的問題，最好的解答就是...去看新增GCE的Module怎麼寫的!
+針對上述的問題，最好的解答就是...去看新增GCE的Module怎麼寫的!
 
   
