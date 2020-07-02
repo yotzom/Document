@@ -42,6 +42,7 @@ Ansible 基於 Python paramiko 開發的，分布式、無需客戶端、輕量�
 
 --- 
 ## 3. Ansible安裝
+
 ### 3-1.更新apt套件清單
 ```
 sudo apt update
@@ -80,14 +81,51 @@ ansible all -i ./hosts -u host_username --private-key ~/gcp_ssh_key/id_rsa -m pi
 
 ---
 ## 4. Ansible連接GCP架構與說明
-### 4-1.demo
-### 4-2.連結架構介紹
-### 4-3.各模組介紹
+本階段會以GCP官方的範例文件實作一遍，並在實作後介紹playbook中所有用到的模組
+### 4-1. DEMO
+#### 4-1-1. PULL GCP官方DEMO的playbook
+```
+clone https://github.com/GoogleCloudPlatform/compute-video-demo-ansible.git
+```
+#### 4-1-2. 根據readme修改相關設定
+<p align="center">
+  <img width="70%" height="70%" src="">
+  <BR>前置作業
+</p>
+ 1.在GCP創建一個帳戶並新增一個專案
+ 2.點選頁面左上方的切換專案，複製下專案ID
+ ![]()
+ 3.必須在你的專案中新增一個付款方式，後續才能使用GCE(使用試用帳戶也是可以的)
+ 4.建立一個此專案的服務帳戶，名子推薦為"demo-ansible"，也可以自訂但不推薦使用GCP預設服務帳戶名稱，
+ 並且以此帳號創建一個JSON格式的SSH私鑰。
+ [Link](https://cloud.google.com/compute/docs/access/service-accounts#serviceaccount)
+ 5.在安裝Ansible的主機安裝Cloud SDK，並成功驗證身分
+ [Link](https://cloud.google.com/sdk/)
+ 6.確保在GCP已經新增好你的Ansible主機SSH公鑰，並已測試過可以使用```gcloud compute ssh```連線現有的GCE Instance
+ [Link](https://medium.com/@pk60905/google-compute-engine-%E5%A6%82%E4%BD%95%E9%80%A3%E7%B7%9A%E8%87%B3linux%E5%9F%B7%E8%A1%8C%E5%80%8B%E9%AB%94-b048fdfbaff3)
+ 7.預設你的SSH私鑰位置是$HOME/.ssh/google_compute_engine
+ 
+#### 4-1-3. 
+#### 4-1-4. 
+#### 4-1-5. 
+#### 4-1-6. 
+#### 4-1-7. 
+#### 4-1-8. 
+#### 4-1-9. 
+#### 4-1-10. 
+
+### 4-2. 各模組介紹
       - 
       - 
       - 
-      -  
       - 
       - 
       - 
+      - 
+### 4-3. 連結架構介紹
+這裡會特別來說明Ansible和GCP如何連接的原因是，
+我在剛碰到Ansible時，看到的介紹和實作教學都只有實際操作並沒有說背後是怎麼運作的，
+可是就會很好奇Ansible到底是怎麼告訴GCP我要新增機器的，是用RESTfulAPI嗎?還是GCP有寫好的程式呢?
+針對上訴的問題，最好的解答就是...去看新增GCE的Module怎麼寫的!
+
   
