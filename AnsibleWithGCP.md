@@ -9,8 +9,7 @@
 --- 
 ## 1. Infrastructure as code介紹
 
-在開始介紹Ansible之前先來段前情提要，<BR>
-在IaC(Infrastructure as code)的概念還未出現時，<BR>
+在開始介紹Ansible之前先來段前情提要，在IaC(Infrastructure as code)的概念還未出現時，<BR>
 要開設一個testing/staging/production的環境時，會先建立一台三個環境都共用的系統和設定，<BR>
 然後再根據三台不同的特性用CLI去分別設定，這時如果要去修改一個共用的設定時，<BR>
 必須在三台機器重複做同樣的事，那如果這個修改需要很多步驟呢?<BR>
