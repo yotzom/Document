@@ -203,13 +203,103 @@ ansible-playbook -i ansible_hosts site.yml
 </p>
 
 ### 4-2. 各模組介紹
-      - gcp_compute_address
-      - gcp_compute_instance
-      - wait_for
-      - add_host
-      - command
-      - apt
-      - template
-      - file
-      - copy
-      - service
+- gcp_compute_address : 管理GCP上的GCE IP address，每個Instance都需要一個address，而每個address都只能給一個Instance
+```
+gcp_compute_address:
+        name: "{{ name_zonea }}-ip"
+        region: "{{ region }}"
+        project: "{{ project }}"
+        service_account_file: "{{ credentials_file }}"
+        auth_kind: "{{ auth_kind }}"
+
+```
+
+- gcp_compute_instance : 管理GCP上的GCE Instance
+```
+gcp_compute_instance:
+        name: "{{ name_zonea }}"
+        machine_type: "{{ machine_type }}"
+        disks:
+          - auto_delete: true
+            boot: true
+            initialize_params:
+              source_image: "{{ image }}"
+        network_interfaces:
+          - access_configs:
+              - name: External NAT
+                nat_ip: "{{ gcea_ip }}"
+                type: ONE_TO_ONE_NAT
+        tags:
+          items:
+            - http-server
+            - https-server
+        zone: "{{ zone }}"
+        project: "{{ project }}"
+        service_account_file: "{{ credentials_file }}"
+        auth_kind: "{{ auth_kind }}"
+
+```
+
+- wait_for : 等待條件達成然後繼續之後的Task
+```
+wait_for: 
+       delay=10 
+       host={{ gcea_ip.address }} 
+       port=22 
+       state=started 
+       timeout=300
+```
+
+- add_host : 新增 hostname/ip 到Ansible in-memory inventory
+```
+add_host: 
+       hostname={{ gcea_ip.address }} 
+       groupname=gce_instances_ips
+```
+
+- command : 執行linux指令
+```
+command: apt update
+```
+
+- apt : 管理apt套件管理系統
+```
+apt: 
+       pkg=apache2 
+       state=present
+```
+
+- template : 將Jinja2的模板傳送到指定目錄
+```
+template: 
+       src=index.html.j2 
+       dest=/var/www/html/index.html
+```
+
+- file : 管理文件，例如: 複製、修改權限、新增link
+```
+file: 
+       path=/var/www/html/index.html 
+       owner=root 
+       group=root 
+       mode=0644
+```
+
+- copy : 將本機檔案複製到客機上
+```
+copy: 
+       src=apache2.conf 
+       dest=/etc/apache2/apache2.conf
+       owner=root 
+       group=root 
+       mode=0644
+```
+
+- service : 管理service
+```
+service: 
+       name=apache2 
+       state=restarted
+```
+
+---
