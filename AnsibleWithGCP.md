@@ -2,7 +2,7 @@
 ### 1. [Infrastructure as code介紹](https://github.com/yotzom/Document/blob/master/AnsibleWithGCP.md#1-infrastructure-as-code%E4%BB%8B%E7%B4%B9-1)
 ### 2. [Ansible介紹](https://github.com/yotzom/Document/blob/master/AnsibleWithGCP.md#2-ansible%E4%BB%8B%E7%B4%B9-1)
 ### 3. [Ansible安裝](https://github.com/yotzom/Document/blob/master/AnsibleWithGCP.md#3-ansible%E5%AE%89%E8%A3%9D-1)
-### 4. [DEMO : Ansible新增多台GCP VM](https://github.com/yotzom/Document/blob/master/AnsibleWithGCP.md#4-ansible%E9%80%A3%E6%8E%A5gcp%E6%9E%B6%E6%A7%8B%E8%88%87%E8%AA%AA%E6%98%8E)
+### 4. [DEMO : Ansible新增多台GCP VM](https://github.com/yotzom/Document/blob/master/AnsibleWithGCP.md#4-demo--ansible%E6%96%B0%E5%A2%9E%E5%A4%9A%E5%8F%B0gcp-vm-1)
 
 --- 
 ## 1. Infrastructure as code介紹
