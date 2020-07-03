@@ -193,4 +193,7 @@ ansible-playbook -i ansible_hosts site.yml
 可是就會很好奇Ansible到底是怎麼告訴GCP我要新增機器的，是用RESTfulAPI嗎?還是GCP有寫好的程式呢?
 針對上述的問題，最好的解答就是...去看新增GCE的Module怎麼寫的!
 
-  
+1.搜尋*gcp_compute_instance*.py檔案
+```
+sudo find / -name *gcp_compute_instance*.py
+```
