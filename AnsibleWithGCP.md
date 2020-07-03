@@ -87,7 +87,7 @@ ansible all -i ./hosts -u host_username --private-key ~/gcp_ssh_key/id_rsa -m pi
 </p>
 
 ---
-## 4. Ansible連接GCP架構與說明
+## 4. DEMO : Ansible新增多台GCP VM
 本階段會以GCP官方的範例文件實作一遍，並在實作後介紹playbook中所有用到的模組
 ### 4-1. DEMO
 #### 4-1-1. PULL GCP官方DEMO的playbook
