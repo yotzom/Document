@@ -2,7 +2,7 @@
 ### 1. [Infrastructure as code介紹](https://github.com/yotzom/Document/blob/master/AnsibleWithGCP.md#1-infrastructure-as-code%E4%BB%8B%E7%B4%B9-1)
 ### 2. [Ansible介紹](https://github.com/yotzom/Document/blob/master/AnsibleWithGCP.md#2-ansible%E4%BB%8B%E7%B4%B9-1)
 ### 3. [Ansible安裝](https://github.com/yotzom/Document/blob/master/AnsibleWithGCP.md#3-ansible%E5%AE%89%E8%A3%9D-1)
-### 4. [DEMO : Ansible新增多台GCP VM]()
+### 4. [DEMO : Ansible新增多台GCP VM](https://github.com/yotzom/Document/blob/master/AnsibleWithGCP.md#4-ansible%E9%80%A3%E6%8E%A5gcp%E6%9E%B6%E6%A7%8B%E8%88%87%E8%AA%AA%E6%98%8E)
 
 --- 
 ## 1. Infrastructure as code介紹
@@ -173,8 +173,34 @@ region: asia-east1
 ansible-playbook -i ansible_hosts site.yml
 ```
 
+<p align="center">
+  <img width="70%" height="70%" src="https://github.com/yotzom/Document/blob/master/AnsibleWithGCP_img/running.png">
+  <BR>執行中畫面
+</p>
+<p align="center">
+  <img width="70%" height="70%" src="https://github.com/yotzom/Document/blob/master/AnsibleWithGCP_img/result.png">
+  <BR>執行完成畫面
+</p>
+
 #### 4-1-10. 成功結果
 在GCP上可以看到新增的兩台新機器，在網頁上輸入這兩台機器的外部IP如果有順利開啟網頁就代表成功了!
+
+<p align="center">
+  <img width="70%" height="70%" src="https://github.com/yotzom/Document/blob/master/AnsibleWithGCP_img/before_all%20gcp_instance.png">
+  <BR>執行前GCP所有機器
+</p>
+<p align="center">
+  <img width="70%" height="70%" src="https://github.com/yotzom/Document/blob/master/AnsibleWithGCP_img/after_all_instance.png">
+  <BR>執行後GCP所有機器
+</p>
+<p align="center">
+  <img width="70%" height="70%" src="https://github.com/yotzom/Document/blob/master/AnsibleWithGCP_img/result_web_1.png">
+  <BR>第一台網頁伺服器結果畫面
+</p>
+<p align="center">
+  <img width="70%" height="70%" src="https://github.com/yotzom/Document/blob/master/AnsibleWithGCP_img/result_web_2.png">
+  <BR>第二台網頁伺服器結果畫面
+</p>
 
 ### 4-2. 各模組介紹
       - gcp_compute_address
