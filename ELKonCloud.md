@@ -231,7 +231,7 @@ $ sudo systemctl enable logstash
 $ sudo vi /etc/logstash/conf.d/logstash.yml
 ```
 > (如果con.d底下沒有logstash.yml就新增一個)
-2. 在kibana.yml裡面新增以下內容:<BR>
+2. 在logstash.yml裡面新增以下內容:<BR>
   
 ```
 input {
